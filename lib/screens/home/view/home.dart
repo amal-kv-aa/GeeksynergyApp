@@ -1,6 +1,9 @@
+
+
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:geeksynergy/screens/home/provider/home_provider.dart';
+import 'package:geeksynergy/screens/signup/provider/signup_provider.dart';
 import 'package:provider/provider.dart';
 
 class Home extends StatelessWidget {
@@ -11,6 +14,20 @@ class Home extends StatelessWidget {
     context.read<HomeProvider>().fetchDatas();
     return Scaffold(
       backgroundColor: const Color.fromARGB(255, 255, 255, 255),
+      appBar: AppBar(
+        foregroundColor: Colors.white,
+        backgroundColor: Theme.of(context).backgroundColor,
+        title: InkWell(
+          onTap: (){
+            context.read<UserProvider>().accountInfo(context);
+          },
+          child: Text(context.watch<UserProvider>().user?.name ?? "null")),
+        actions: [
+          ElevatedButton(onPressed: (){
+            context.read<HomeProvider>().companyinfo(context);
+          }, child: const Text("company info"))
+        ]
+      ),
       body: Consumer<HomeProvider>(
         builder: (context, value, child) {
           if (value.movieData == null) {
@@ -104,18 +121,24 @@ class Home extends StatelessWidget {
                               ],
                             ),
                             Padding(
-                              padding:  EdgeInsets.all(20.r),
+                              padding: EdgeInsets.all(20.r),
                               child: Wrap(
-                                alignment: WrapAlignment.spaceEvenly,
+                                  alignment: WrapAlignment.spaceEvenly,
                                   children: [
-                                  Text("views : ${value.movieData?[index].pageViews.toString() ?? ""}"),
-                                  SizedBox(width: 30.w,),
-                                    Text(value.movieData?[index].director
-                                                .join()
-                                                .isNotEmpty ==
-                                            true
-                                        ? "Director : ${value.movieData?[index].director.join().toString()}"
-                                        : "",style: const TextStyle(fontWeight: FontWeight.w600)),
+                                    Text(
+                                        "views : ${value.movieData?[index].pageViews.toString() ?? ""}"),
+                                    SizedBox(
+                                      width: 30.w,
+                                    ),
+                                    Text(
+                                        value.movieData?[index].director
+                                                    .join()
+                                                    .isNotEmpty ==
+                                                true
+                                            ? "Director : ${value.movieData?[index].director.join().toString()}"
+                                            : "",
+                                        style: const TextStyle(
+                                            fontWeight: FontWeight.w600)),
                                   ]),
                             ),
                           ],

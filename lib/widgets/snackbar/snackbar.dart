@@ -4,7 +4,8 @@ class CustomSnackbar{
  static  showSnack({required BuildContext context,required String text}){
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(content: Text(text),
-      backgroundColor: Theme.of(context).primaryColor,
+
+      backgroundColor: Theme.of(context).backgroundColor,
       duration:const Duration(seconds: 3),
       ),
       
