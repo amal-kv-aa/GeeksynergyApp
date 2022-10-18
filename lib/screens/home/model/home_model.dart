@@ -121,10 +121,10 @@ class Result {
    
 }
 
-enum Language { KANNADA }
+enum Language { kannada }
 
 final languageValues = EnumValues({
-    "Kannada": Language.KANNADA
+    "Kannada": Language.kannada
 });
 
 class Voted {

@@ -19,13 +19,16 @@ class Login extends StatelessWidget {
         padding: EdgeInsets.symmetric(horizontal: 25.w),
         child: ListView(
           children: [
-            SizedBox(height: 100.h,),
+            SizedBox(
+              height: 100.h,
+            ),
             Container(
               height: 200.h,
               width: 300.w,
               decoration: const BoxDecoration(
-                image: DecorationImage(image: AssetImage('assets/amal png.png'),fit: BoxFit.cover)
-              ),
+                  image: DecorationImage(
+                      image: AssetImage('assets/amal png.png'),
+                      fit: BoxFit.cover)),
             ),
             Form(
                 key: context.watch<LoginProvider>().formkey,

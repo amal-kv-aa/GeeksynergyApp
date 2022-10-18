@@ -1,19 +1,13 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:geeksynergy/screens/home/model/home_model.dart';
 import 'package:geeksynergy/screens/home/model/post_model.dart';
-import 'package:geeksynergy/screens/signup/model/signup_model.dart';
-import 'package:geeksynergy/screens/signup/provider/signup_provider.dart';
 import 'package:geeksynergy/services/Api/movies_api.dart';
-import 'package:provider/provider.dart';
 
 class HomeProvider with ChangeNotifier {
   List<Result>? movieData;
 //==========fetch==datas=from====api===========//
   void fetchDatas() {
-    log("1..");
     final data = PostModel(
         category: "movies", language: "kannada", genre: "all", sort: "voting");
     GetApi().getmoviesDetailes(data).then((value) => {

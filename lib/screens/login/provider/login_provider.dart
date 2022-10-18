@@ -11,12 +11,12 @@ class LoginProvider with ChangeNotifier {
   final formkey = GlobalKey<FormState>();
   bool visibility = true;
   
-
+//==============visibleset=========//
   visibleupdate() {
     visibility = !visibility;
     notifyListeners();
   }
-
+//=============validate=============//
   validate(BuildContext context) {
     if (formkey.currentState!.validate()) {
       context.read<UserProvider>().checkuser(namecontroller.text.trim(),passwodcontroller.text.trim(),context);
@@ -25,7 +25,7 @@ class LoginProvider with ChangeNotifier {
       return;
     }
   }
-
+//==========clear==fields==========//
   clearField() {
     namecontroller.clear();
     passwodcontroller.clear();
