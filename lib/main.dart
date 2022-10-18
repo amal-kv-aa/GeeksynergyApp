@@ -13,7 +13,6 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
@@ -21,8 +20,8 @@ class MyApp extends StatelessWidget {
         return MaterialApp(
           title: 'Flutter Demo',
           theme: ThemeData(
-            primarySwatch: Colors.blue,
-            textTheme: const TextTheme(headlineMedium: TextStyle(fontSize: 20,fontWeight: FontWeight.bold))
+            primarySwatch: Colors.yellow,
+            textTheme:   const TextTheme(headlineMedium: TextStyle(fontSize: 20,fontWeight: FontWeight.bold,color: Colors.black))
           ),
           home: const Home(),
         );
